@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="index1.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="box3">
+        <div class="container">
+            <div class="logo">
+                BOSEMANTE
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="cart.html">CART</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="cont">
+        <form onsubmit="sendE(); reset(); return false;">
+            <h2>CONTACT US</h2>
+            <input type="text" id="name" placeholder="YOUR NAME"  required>
+            <input type="email" id="email" placeholder="EMAIL" required>
+            <input type="text" id="phone" placeholder="PHONE NO." required>
+            <textarea id="msg" cols="30" rows="10" placeholder="YOUR MESSAGE"></textarea>
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendE(){
+            Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "rajburagohain0@gmail.com",
+            Password : "5F2F52AEBD194F0358174CBD800B315A77B7",
+            To : 'rajburagohain0@gmail.co',
+            From : document.getElementById("email").value,
+            Subject : "Message from Customer",
+            Body : "Name:" + document.getElementById("name").value +
+                   "Message" + document.getElementById("msg").value +
+                   "Phone No" + document.getElementById("phone").value
+            }).then(
+              message => alert("Msg Sent Sucessfully")
+            );
+        }
+    </script>
+</body>
+</html>
